@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exodus® Web3 Wallet | Exodus® Browser Extension</title>
+    <meta name="description" content="Exodus Web3 brings modern solutions to asset handling. Discover a smarter, faster, and safer way to explore the decentralized ecosystem today.">
+    <meta name="exodus" content="exodus bridge">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+<style>
+  /* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #1d1f33, #161729);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  background: rgba(0, 0, 0, 0.5);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-image {
+  width: 135px;
+  height: 35px;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.menu li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn-download {
+  background-color: #6c63ff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-download:hover {
+  background-color: #4b46d8;
+  transform: scale(1.1);
+}
+
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5% 10%;
+  min-height: 90vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.content {
+  max-width: 50%;
+  animation: slideInLeft 1.5s ease;
+}
+
+.content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.btn {
+  background-color: #6c63ff;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #4b46d8;
+  transform: scale(1.1);
+}
+
+.hero-animation {
+  position: relative;
+  max-width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.glow-circle {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(108,99,255,0.4), rgba(0,0,0,0));
+  border-radius: 50%;
+  animation: pulse 3s infinite;
+}
+
+.animated-wallet img {
+  width: 250px;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Delays for Animations */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+.fade-in.delay-1 {
+  animation-delay: 0.5s;
+}
+
+.fade-in.delay-2 {
+  animation-delay: 1s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+.content-section {
+  padding: 50px 10%;
+  background-color: #22243b;
+  color: #fff;
+  text-align: center;
+}
+
+.content-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #6c63ff;
+}
+
+.section-description {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  line-height: 1.8;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.feature {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.feature:hover {
+  background-color: #6c63ff;
+  transform: scale(1.05);
+}
+
+.feature h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.feature p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.btn.learn-more {
+  display: inline-block;
+  background-color: #6c63ff;
+  color: #fff;
+  padding: 15px 30px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn.learn-more:hover {
+  background-color: #4b46d8;
+  transform: scale(1.1);
+}
+/* Footer Styles */
+.footer {
+  background-color: #1a1b2d;
+  color: #fff;
+  padding: 50px 10%;
+  text-align: center;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  align-items: center;
+}
+
+.footer-logo {
+  text-align: left;
+}
+
+.footer-logo img {
+  width: 50px;
+  margin-bottom: 10px;
+}
+
+.footer-logo h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #6c63ff;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin: 10px 0;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #6c63ff;
+}
+
+.footer-social p {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.social-icon img {
+  width: 30px;
+  transition: transform 0.3s ease;
+}
+
+.social-icon img:hover {
+  transform: scale(1.1);
+}
+
+.footer-subscription p {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.footer-subscription form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.footer-subscription input {
+  padding: 10px;
+  border: none;
+  border-radius: 25px;
+  outline: none;
+  width: 250px;
+  max-width: 100%;
+}
+
+.footer-subscription .btn-subscribe {
+  background-color: #6c63ff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.footer-subscription .btn-subscribe:hover {
+  background-color: #4b46d8;
+  transform: scale(1.1);
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 20px;
+  color: #bbb;
+}
+</style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo-container">
+      <img src="https://i.ibb.co/WvsXm2S/logo.png/100x50" alt="Logo" class="logo-image">      
+    </div>
+    <nav>
+      <ul class="menu">
+        <li><a href="#products">Products</a></li>
+        <li><a href="#support">Support</a></li>
+        <li><a href="#learn">Learn</a></li>
+        <li><a href="#company">Company</a></li>
+      </ul>
+    </nav>
+    <a href="#download" class="btn-download">Download</a>
+  </header>
+
+  <main class="hero-section">
+    <div class="content">
+      <h1 class="fade-in">Your Gateway to the Web3 Universe</h1>
+      <p class="fade-in delay-1">Secure, fast, and reliable — explore Web3 with confidence.</p>
+      <div class="buttons fade-in delay-2">
+        <a href="#" class="btn mobile">📱 Download Mobile</a>
+        <a href="#" class="btn extension">🧩 Download Extension</a>
+      </div>
+    </div>
+    <div class="hero-animation">
+      <div class="glow-circle"></div>
+      <div class="animated-wallet">
+        <img src="https://www.exodus.com/brand/img/logo-colors.png" alt="Wallet" />
+      </div>
+    </div>
+  </main>
+</body>
+</html>
+<section class="content-section">
+  <div class="content-wrapper">
+    <h1><strong>Exodus Web3 Wallet: Simplify Your Decentralized Journey</strong></h1>
+<p>The Exodus Web3 Wallet is your ultimate companion for navigating the world of blockchain and decentralized finance (DeFi). Designed with user-friendliness and security at its core, this wallet empowers you to manage cryptocurrencies and interact with decentralized applications (dApps) effortlessly.</p>
+<h2><strong>What Is the Exodus Web3 Wallet?</strong></h2>
+<p>The Exodus Web3 Wallet is a multi-chain wallet that supports a broad range of cryptocurrencies and tokens. Whether you&rsquo;re storing Bitcoin, Ethereum, or ERC-20 tokens, this wallet has you covered. Its seamless integration with Web3 technology allows users to connect directly to dApps, such as decentralized exchanges, NFT platforms, and DeFi protocols.</p>
+<h2><strong>Why Choose the Exodus Web3 Wallet?</strong></h2>
+<ol>
+<li><strong>Ease of Use</strong>: The wallet features an intuitive interface, making it accessible for both beginners and experienced users.</li>
+<li><strong>Security First</strong>: Your private keys remain stored on your device, ensuring full control of your assets.</li>
+<li><strong>Multi-Platform Access</strong>: Manage your portfolio on desktop, mobile, or browser with ease.</li>
+</ol>
+<h2><strong>Start Your Web3 Journey Today</strong></h2>
+<p>Take control of your financial future with the Exodus Web3 Wallet. Download it now and experience a seamless, secure way to explore the decentralized ecosystem. Visit <a href="https://www.exodus.com" target="_new" rel="noopener">Exodus&rsquo;s official website</a> to get started!</p>
+      </div>
+    </div>
+    <a href="#download" class="btn learn-more">Learn More</a>
+  </div>
+</section>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <img src="https://i.ibb.co/tc4DDdd/Exodus-symbol-1.png/50x50" alt="Logo">
+      <h3>Web3 Wallet</h3>
+    </div>
+    <div class="footer-links">
+      <ul>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#support">Support</a></li>
+        <li><a href="#learn">Learn</a></li>
+        <li><a href="#company">Company</a></li>
+      </ul>
+    </div>
+    <div class="footer-social">
+      <p>Follow us:</p>
+      <div class="social-icons">
+        
+      </div>
+    </div>
+    <div class="footer-subscription">
+      <p>Subscribe to our newsletter:</p>
+      <form action="#">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit" class="btn-subscribe">Subscribe</button>
+      </form>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 Web3 Wallet. All rights reserved.</p>
+  </div>
+</footer>
